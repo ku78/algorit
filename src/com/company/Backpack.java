@@ -1,0 +1,28 @@
+package com.company;
+
+public class Backpack {
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{11, 8, 7, 6, 5};
+        find(arr,20);
+    }
+
+    public static boolean find( int[] arr,int total){
+        return find(arr,0,total);
+    }
+
+    private static boolean find( int[] arr,int start,  int total){
+        if (start == arr.length){
+            return false;
+        }
+        int curr = arr[start];
+        if (curr == total){
+            System.out.println(curr);
+            return true;
+        }else if (curr > total || !find(arr,start+1,total-curr)){
+            return find(arr,start+1,total);
+        }
+        System.out.println(curr);
+        return true;
+    }
+}
